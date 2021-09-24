@@ -14,10 +14,33 @@
         <%= link_to "Friends",friends_path,class:"nav-link" %>
         <%# <a class="nav-link" href="#">Link</a> %>
       </li>
+      <%if user_signed_in? %>
+      
       <li class="nav-item">
         <%= link_to "Add Friend",new_friend_path,class:"nav-link" %>
         <%# <a class="nav-link" href="#">Link</a> %>
       </li>
+      
+      <li class="nav-item">
+        <%= link_to "Sign Out",destroy_user_session_path,method: :delete,class:"nav-link" %>
+        <%# <a class="nav-link" href="#">Link</a> %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Edit Profile",edit_user_registration_path,class:"nav-link" %>
+        <%# <a class="nav-link" href="#">Link</a> %>
+      </li>
+      <%else%>
+      <li class="nav-item">
+        <%= link_to "Sign Up",new_user_registration_path,class:"nav-link" %>
+        <%# <a class="nav-link" href="#">Link</a> %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "Sign In",new_user_session_path,class:"nav-link" %>
+        <%# <a class="nav-link" href="#">Link</a> %>
+      </li>
+      <%end%>
+      
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
